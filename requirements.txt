@@ -1,0 +1,6 @@
+Flask
+Flask-WTF
+Flask-Mail
+flask-sqlalchemy
+pymysql
+M2Crypto

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>Welcome to the Beta Network™</h2>
+    <h3>Exclusive Access to Tech & Lifestyle Products before anyone else.</h3>
+    <center>
+    <p>Submit your email for access.</p>
+
+    {% if success %}
+    <p>Thank you for your submission. We'll get back to you as soon as a spot opens up.
+
+    {% else %}
+
+    {% for message in form.firstname.errors %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% for message in form.lastname.errors %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% for message in form.email.errors %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    <form action="{{ url_for('home') }}" method=post>
+        {{ form.hidden_tag() }}
+
+        {{ form.firstname.label }}
+        {{ form.firstname }}
+
+        {{ form.lastname.label }}
+        {{ form.lastname }}
+
+        {{ form.email.label }}
+        {{ form.email }}
+
+        {{ form.submit }}
+    </form>
+  </center>
+</div>
+{% endif %}
+{% endblock %}
